@@ -1,0 +1,24 @@
+<!-- Header -->
+<header>
+  <h1>WELCOME TO FRESH STORE</h1>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/cart">Cart</a>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main>
+  <!-- Product Listing -->
+  <div class="product-list">
+    <!-- Loop through your product data and display each product -->
+    <div *ngFor="let product of products" class="product-item">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" class="fixed-size-image"/>
+      <h2>{{ product.name }}</h2>
+      <p>Price: ${{ product.price }}</p>
+      <button (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </div>
+</main>
+<router-outlet></router-outlet>   
